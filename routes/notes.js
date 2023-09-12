@@ -1,10 +1,11 @@
 const notes = require('express').Router();
-const { v4: uuidv4 } = require('uuid');
+const uuid = require('../helpers/uuid');
 const {
   readFromFile,
   readAndAppend,
   writeToFile,
 } = require('../helpers/fsUtils');
+const { response } = require('../../UTOR-VIRT-FSF-FT-07-2023-U-LOLC/11-Express/01-Activities/28-Stu_Mini-Project/Main/routes');
 
 // GET Route for retrieving all the notes
 notes.get('/', (req, res) => {
@@ -12,32 +13,32 @@ notes.get('/', (req, res) => {
 });
 
 // GET Route for a specific notes
-notes.get('/:notes_id', (req, res) => {
-  const notesId = req.params.notes_id;
+notes.get('/:id', (req, res) => {
+  const titleId = req.params.id;
   readFromFile('./db/notes.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
-      const result = json.filter((notes) => notes.notes_id === notesId);
+      const result = json.filter((title) => title.id === titleId);
       return result.length > 0
         ? res.json(result)
-        : res.json('No notes with that ID');
+        : res.json('No note with that ID');
     });
 });
 
 // DELETE Route for a specific notes
-notes.delete('/:notes_id', (req, res) => {
-  const notesId = req.params.notes_id;
+notes.delete('/:id', (req, res) => {
+  const titleId = req.params.id;
   readFromFile('./db/notes.json')
     .then((data) => JSON.parse(data))
     .then((json) => {
       // Make a new array of all notes except the one with the ID provided in the URL
-      const result = json.filter((notes) => notes.notes_id !== notesId);
+      const result = json.filter((title) => title.id !== titleId);
 
       // Save that array to the filesystem
       writeToFile('./db/notes.json', result);
 
-      // // Respond to the DELETE request
-      // res.json(`Item ${notesId} has been deleted 🗑️`);
+      // Respond to the DELETE request
+      res.json(`Item ${titleId} has been deleted 🗑️`);
     });
 });
 
@@ -51,10 +52,11 @@ notes.post('/', (req, res) => {
     const newnotes = {
       title,
       text,
-      note_id: uuidv4(),
+      id: uuid(),
     };
 
-    readAndAppend(newnotes, './db/notes.json');
+    readAndAppend(newnotes, './db/notes.json' ).then((data)=>response.json(data));
+  
   }
 });
 
