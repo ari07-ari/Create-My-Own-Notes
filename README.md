@@ -4,7 +4,7 @@ This application helps the user take notes and store their information on the si
 
 ![Webpage](./images/notes.png)
 
-[Go to Website here](https://ari07-ari.github.io/Javascript-Knowledge-Quiz/)
+[Go to Website here](https://ari07-ari.github.io/Create-My-Own-Notes/)
 
 ## Installation
 The purpose of this application is to help users have an easier organized note site. The user will have to write a title and then a description. Then the save icon will appear and will then save it on the left side for future reference. To recap a note, just click on the desired note and it will appear. 
