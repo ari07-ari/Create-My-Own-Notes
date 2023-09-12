@@ -7,10 +7,10 @@ This application helps the user take notes and store their information on the si
 [Go to Website here](https://radiant-beyond-87234-f2cef3132686.herokuapp.com/)
 
 ## Installation
-The purpose of this application is to help users have an easier organized note site. The user will have to write a title and then a description. Then the save icon will appear and will then save it on the left side for future reference. To recap a note, just click on the desired note and it will appear. 
+I created a repo in GitHub, which then cloned onto VS. Then I copied the Develop folder and transferred the files onto CREATE-MY-OWN-NOTES folder. After having everything ready, I added necessary folders along my coding journey.
 
 ## Usage
-The purpose of this application 
+The purpose of this application is to help users have an easier organized note site. The user will have to write a title and then a description. Then the save icon will appear and will then save it on the left side for future reference. To recap a note, just click on the desired note and it will appear.
 
 ## Credits
 The University of Toronto,
