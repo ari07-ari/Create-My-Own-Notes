@@ -5,7 +5,6 @@ const {
   readAndAppend,
   writeToFile,
 } = require('../helpers/fsUtils');
-const { response } = require('../../UTOR-VIRT-FSF-FT-07-2023-U-LOLC/11-Express/01-Activities/28-Stu_Mini-Project/Main/routes');
 
 // GET Route for retrieving all the notes
 notes.get('/', (req, res) => {
